@@ -29,7 +29,7 @@ var input = process.argv;
 
 //grabs user command for tweets, movies, spotify or random
 var command = input[2];
-// console.log(input[2]);
+
 
 //grabs movie or song names to put into request
 var name = "";
@@ -38,15 +38,13 @@ for (i = 3; i < input.length; i++) {
 }
 
 name = name.trim().replace(" ", "+");
-// console.log(name);
-//console.log(nodeArgs.length);
+
 if (command === "my-tweets") {
 	    		
 	var params = {screen_name: 'vfrag16', limit: 20};
 	
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {
 	  if (!error) {
-	  	// console.log(response, null, 2);
 	    for (var i = tweets.length - 1; i >= 0; i--) {
 	    	var myTweets = 
 	    		"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + "\r\n" + "\r\n" +
@@ -64,14 +62,11 @@ else if (command === "spotify-this-song") {
 	if (name === "") {
   		name = "The Sign"
   	}
-	//same song info as above but looking at info for "The Sign" by Ace of Base.
 	spotify.search({ type: 'track', query: name, limit: 6 }, function(err, data) {
  	if (err) {
     	return console.log('Error occurred: ' + err);
   	}
-  	
-  	// console.log(JSON.stringify(data, null, 2));
-  	// console.log(data);
+
   	var track = data.tracks.items[5];
     var mySong =
 		"-----------------------------------------------------------------------" + "\r\n" +
