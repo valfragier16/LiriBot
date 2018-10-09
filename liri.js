@@ -11,7 +11,7 @@ require("dotenv").config();
 var tomatoesRating;
 var internetRating;
 
-//npm require
+//npm require - pull information from api 
 var fs = require("fs");
 var keys = require("./keys.js");
 var Twitter = require('twitter');
